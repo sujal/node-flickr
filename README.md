@@ -33,7 +33,30 @@ Some examples follow.
 
 ## Examples
 
-_Coming Soon_
+````javascript
+
+var flickr = new Flickr(flickr_api_key, flickr_api_secret);
+
+var flickr_params = {
+	text: "soccer",
+	media: "photos",
+	per_page: 25,
+	page: 1,
+	extras: "url_q, url_z, url_b, owner_name"
+};
+
+flickr.executeAPIRequest("flickr.photos.search", flickr_params, false, function(err, result) {
+		// Show the error if we got one
+		if(err) {
+			console.log("FLICKR ERROR: " + err);
+
+			return;
+		}
+
+		// Do something with flicker photos
+		doSomething(result.photos)
+
+````
 
 ## Development
 
